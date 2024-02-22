@@ -3,16 +3,27 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { LastMessageComponent } from './last-message/last-message.component';
+import { MessageFormComponent } from './message-form/message-form.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MessageServiceService } from './message-service.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LastMessageComponent,
+    MessageFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [MessageServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
