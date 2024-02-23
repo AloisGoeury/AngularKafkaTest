@@ -9,13 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MessageServiceService } from './message-service.service';
+import { ListMessagesComponent } from './list-messages/list-messages.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LastMessageComponent,
-    MessageFormComponent
+    MessageFormComponent,
+    ListMessagesComponent
   ],
   imports: [
     BrowserModule,
