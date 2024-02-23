@@ -12,7 +12,7 @@ export class LastMessageComponent implements OnInit {
 
   message: Message;
 
-  messagetoTopic : Message;
+  messagetoTopic: Message;
 
   constructor(
     private messageService: MessageServiceService
@@ -20,17 +20,18 @@ export class LastMessageComponent implements OnInit {
     this.messagetoTopic = new Message();
   }
 
-  onSubmit(){
-    if(this.messagetoTopic.topic != null){
-    this.messageService.getMessage(this.messagetoTopic.topic).subscribe(data => {
-      this.message = data;
-      if(this.message == null){
-        this.messagetoTopic.message = "No message sent yet in this topic"
-        this.message = this.messagetoTopic
-      }
-    });} else {
+  onSubmit() {
+    if (this.messagetoTopic.topic != null) {
+      this.messageService.getMessage(this.messagetoTopic.topic).subscribe(data => {
+        this.message = data;
+        if (this.message == null) {
+          this.messagetoTopic.message = "No message sent yet in this topic"
+          this.message = this.messagetoTopic
+        }
+      });
+    } else {
       this.messageService.getAllMessage().subscribe(data => {
-        data.sort((a,b) => ((new Date(a.date).getTime() - new Date(b.date).getTime())));
+        data.sort((a, b) => ((new Date(a.date).getTime() - new Date(b.date).getTime())));
         this.message = data[data.length - 1];
       });
     }
@@ -38,7 +39,7 @@ export class LastMessageComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageService.getAllMessage().subscribe(data => {
-      data.sort((a,b) => (new Date(a.date).getTime() - new Date(b.date).getTime()));
+      data.sort((a, b) => (new Date(a.date).getTime() - new Date(b.date).getTime()));
       this.message = data[data.length - 1];
     });
   }

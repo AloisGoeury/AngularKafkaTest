@@ -2,16 +2,26 @@
   <div class="card-body">
     <form (ngSubmit)="onSubmit()" #messageForm="ngForm">
       <div class="form-group">
-        <p>You select your topic</p>
-          <select [(ngModel)]="messagetoTopic.topic" name="topic">
-            <option default value="baeldung">baeldung</option>
-            <option value="filtered">filtered</option>
-            <option value="javaguides">javaguides</option>
-            <option value="longMessage">longMessage</option>
-          </select>
+        <div class="row">
+          <div class="col-md-6">
+            <p>You select your topic</p>
+            <select [(ngModel)]="messagetoTopic.topic" name="topic">
+              <option default value="baeldung">baeldung</option>
+              <option value="filtered">filtered</option>
+              <option value="javaguides">javaguides</option>
+              <option value="longMessage">longMessage</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <p>Select the order</p>
+            <select [(ngModel)]="sorter" name="sorter">
+              <option value="asc">Ascendant</option>
+              <option value="desc">Descendant</option>
+            </select>
+          </div>
         </div>
-      <button type="submit"
-        class="btn btn-info">Submit</button>
+      </div>
+      <button type="submit" class="btn btn-info">Submit</button>
     </form>
   </div>
 </div>

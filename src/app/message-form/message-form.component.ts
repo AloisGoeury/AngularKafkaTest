@@ -9,7 +9,7 @@ import { Message } from '../message';
   styleUrls: ['./message-form.component.css']
 })
 export class MessageFormComponent {
-  message : Message;
+  message: Message;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,11 +19,11 @@ export class MessageFormComponent {
     this.message = new Message();
   }
 
-  onSubmit(){
+  onSubmit() {
     this.messageService.send(this.message).subscribe(result => this.gotoIndex());
   }
 
-  gotoIndex(){
+  gotoIndex() {
     console.log("normalement on va à get_message")
     this.router.navigate(['/get_message']);
   }
