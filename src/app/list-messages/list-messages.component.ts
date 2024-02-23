@@ -17,7 +17,7 @@ export class ListMessagesComponent implements OnInit {
     this.messagetoTopic = new Message();
   }
 
-  onSubmit() {
+  onSubmit() { // TODO: give the possibility to make a filter with multiples topics
     if (this.messagetoTopic.topic != null) {
       this.messageService.getMessages(this.messagetoTopic.topic).subscribe(data => {
         this.listMessages = data;

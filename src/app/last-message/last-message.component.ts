@@ -24,9 +24,10 @@ export class LastMessageComponent implements OnInit {
     if (this.messagetoTopic.topic != null) {
       this.messageService.getMessage(this.messagetoTopic.topic).subscribe(data => {
         this.message = data;
-        if (this.message == null) {
-          this.messagetoTopic.message = "No message sent yet in this topic"
-          this.message = this.messagetoTopic
+        if (this.message == null) { // TODO: change the html to do a loop on only one message to don't have cards when there is no message
+          this.message = new Message();
+          this.message.message = "No message sent yet in this topic";
+          this.message.topic = this.messagetoTopic.topic;
         }
       });
     } else {
